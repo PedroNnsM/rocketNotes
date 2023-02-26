@@ -6,7 +6,9 @@ export function Details() {
     <Container>
       <h1> Hello World </h1>
 
-      <Button />
+      <Button title="Entra" loading />
+      <Button title="Cadastra" />
+      <Button title="Voltar" />
     </Container>
   );
 }
