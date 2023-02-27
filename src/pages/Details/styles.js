@@ -36,7 +36,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  > bottom:first-child {
+  > button:first-child {
     align-self: end;
   }
 
