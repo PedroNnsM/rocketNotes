@@ -1,6 +1,6 @@
-import { Container, Form } from "./styles";
+import { Container, Form, Avatar } from "./styles";
 
-import { FiArrowLeft, FiUser, FiMail, FiLock } from "react-icons/fi";
+import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
@@ -14,11 +14,19 @@ export function Profile() {
       </header>
 
       <Form>
+        <Avatar>
+          <img src="https://github.com/pedronnsm.png" alt="foto do usuario" />
+
+          <label htmlFor="avatar">
+            <FiCamera />
+            <input id="avatar" type="file" />
+          </label>
+        </Avatar>
         <Input placegolder="Nome" type="text" icon={FiUser} />
         <Input placegolder="E-Mail" type="text" icon={FiMail} />
         <Input placegolder="Senha atual" type="password" icon={FiLock} />
         <Input placegolder="Nova senha" type="password" icon={FiLock} />
-        <Button title='Salvar' />
+        <Button title="Salvar" />
       </Form>
     </Container>
   );
