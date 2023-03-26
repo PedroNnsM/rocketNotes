@@ -17,7 +17,18 @@ export function SignUp() {
     if (!name || !email || !password) {
       return alert("Preencha todos os campos!");
     }
-    api.post("/users", { name, email, password });
+    api
+      .post("/users", { name, email, password })
+      .then(() => {
+        alert("usuario cadastrado com sucesso!");
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else{
+          alert('Nao foi possivel cadastrar')
+        }
+      });
   }
 
   return (
