@@ -40,7 +40,7 @@ export function New() {
             </div>
           </Section>
 
-          <Button title='Salvar'/>
+          <Button title="Salvar" />
         </Form>
       </main>
     </Container>

@@ -25,8 +25,8 @@ export function SignUp() {
       .catch((error) => {
         if (error.response) {
           alert(error.response.data.message);
-        } else{
-          alert('Nao foi possivel cadastrar')
+        } else {
+          alert("Nao foi possivel cadastrar");
         }
       });
   }

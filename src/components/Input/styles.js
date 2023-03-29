@@ -14,7 +14,7 @@ export const Container = styled.div`
   svg {
     margin-left: 16px;
   }
-  
+
   > input {
     height: 56px;
     width: 100%;

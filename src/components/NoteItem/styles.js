@@ -15,32 +15,30 @@ export const Container = styled.div`
   border-radius: 10px;
   padding-right: 16px;
 
-  > button{
+  > button {
     border: none;
     background: none;
   }
 
   .button-delete {
-    color: ${({theme}) => theme.COLORS.RED};
+    color: ${({ theme }) => theme.COLORS.RED};
   }
   .button-add {
-    color: ${({theme}) => theme.COLORS.ORANGE};
+    color: ${({ theme }) => theme.COLORS.ORANGE};
   }
 
   > input {
-    height:56px;
+    height: 56px;
     width: 100%;
 
     padding: 12px;
 
-    color: ${({theme}) => theme.COLORS.WHITE};
+    color: ${({ theme }) => theme.COLORS.WHITE};
     background: transparent;
-    border: none ;
+    border: none;
 
-    &::placeholder{
-      color: ${({theme}) => theme.COLORS.GRAY_300};
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
-    
   }
 `;
- 

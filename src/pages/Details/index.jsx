@@ -13,13 +13,17 @@ export function Details() {
       <main>
         <Content>
           <ButtonText title="Excluir nota" />
-          
-          <h1>
-            Introdução ao React
-          </h1>
+
+          <h1>Introdução ao React</h1>
 
           <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, nam possimus, voluptates consectetur itaque similique vero corporis veniam sapiente pariatur explicabo ipsam consequatur culpa eum unde expedita? Hic, minima rem!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, nam possimus, voluptates consectetur itaque similique vero corporis veniam sapiente pariatur explicabo ipsam consequatur culpa eum unde expedita? Hic, minima rem!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, nam
+            possimus, voluptates consectetur itaque similique vero corporis
+            veniam sapiente pariatur explicabo ipsam consequatur culpa eum unde
+            expedita? Hic, minima rem!Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Ipsa, nam possimus, voluptates consectetur itaque
+            similique vero corporis veniam sapiente pariatur explicabo ipsam
+            consequatur culpa eum unde expedita? Hic, minima rem!
           </p>
           <Section title="Links úteis">
             <Links>
