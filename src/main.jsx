@@ -6,15 +6,15 @@ import { ThemeProvider } from "styled-components";
 import { Routes } from "./routes";
 
 import theme from "./Styles/theme";
-import { MyContext } from "./myContext";
+import { AuthProvider } from "./hooks/auth";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <MyContext.Provider value={{email:"pedro@outlook.com"}}>
+      <AuthProvider>
         <Routes />
-      </MyContext.Provider>
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
