@@ -5,9 +5,19 @@ import { api } from "../services/api";
 export const AuthContent = createContext({});
 
 function AuthProvider({ children }) {
+
   async function signIn({ email, password }) {
-    const response = await api.post("/sessions", { email, password });
-    console.log(response)
+
+    try{
+      const response = await api.post("/sessions", { email, password });
+      console.log(response)
+    } catch(error){
+      if(error.response){
+        alert(error.response.data.message)
+      }else{
+        alert("Não foi possivel acessar")
+      }
+    }
   }
 
   return (
