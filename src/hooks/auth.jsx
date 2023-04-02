@@ -1,38 +1,15 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 
-import { api } from "../services/api";
-
-export const AuthContent = createContext({});
+const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
-
-  async function signIn({ email, password }) {
-
-    try{
-      const response = await api.post("/sessions", { email, password });
-      console.log(response)
-    } catch(error){
-      if(error.response){
-        alert(error.response.data.message)
-      }else{
-        alert("Não foi possivel acessar")
-      }
-    }
-  }
-
   return (
-    <AuthContent.Provider
-      value={{ name: "Pedro Nunes", email: "pedronunes95@outlook.com" }}
+    <AuthContext.Provider
+      value={{ name: "Pedro", email: "pedronunes95@outlo" }}
     >
       {children}
-    </AuthContent.Provider>
+    </AuthContext.Provider>
   );
 }
 
-function useAuth() {
-  const context = useContext(AuthContent);
-
-  return context;
-}
-
-export { AuthProvider, useAuth };
+export { AuthProvider };
