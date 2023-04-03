@@ -14,7 +14,6 @@ export function SignIn() {
   const [password, setPassword] = useState("");
 
   const { signIn } = useAuth();
-  
 
   function handleSignIn() {
     signIn({ email, password });
@@ -32,21 +31,19 @@ export function SignIn() {
           placeholder="E-mail"
           type="text"
           icon={FiMail}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <Input
           placeholder="Senha"
           type="password"
           icon={FiLock}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        <Button title="Entrar" to="/register" onClick={handleSignIn}/>
+        <Button title="Entrar" to="/register" onClick={handleSignIn} />
 
-        <Link >
-          Criar conta
-        </Link>
+        <Link>Criar conta</Link>
       </Form>
       <Background />
     </Container>
