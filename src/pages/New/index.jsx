@@ -1,15 +1,23 @@
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+
 import { Textarea } from "../../components/Textarea";
 import { NoteItem } from "../../components/NoteItem";
 import { Section } from "../../components/Section";
 import { Button } from "../../components/Button";
+import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
+
+import { api } from "../../services/api";
 
 import { Container, Form } from "./styles";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 
 export function New() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   const [links, setLinks] = useState([]);
   const [newLink, setNewLink] = useState("");
 
@@ -27,6 +35,22 @@ export function New() {
 
   function handleAddTag() {
     setTags((prevState) => [...prevState, newTag]);
+    setNewTag("");
+  }
+
+  function handleRemoveTag(deleted) {
+    setTags((prevState) => prevState.filter((tag) => tag !== deleted));
+  }
+
+  async function handleNewNote(){
+    await api.post("/notes",{
+      title,
+      description,
+      tags,
+      links
+    })
+
+    alert('nota criada com sucesso')
   }
 
   return (
@@ -40,9 +64,15 @@ export function New() {
             <Link to="/">Voltar</Link>
           </header>
 
-          <Input placeholder="Titulo" />
+          <Input
+            placeholder="Titulo"
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-          <Textarea placeholder="Observações" />
+          <Textarea
+            placeholder="Observações"
+            onChange={(e) => setDescription(e.target.value)}
+          />
 
           <Section title="Links úteis">
             {links.map((link, index) => (
@@ -64,7 +94,11 @@ export function New() {
           <Section title="Marcadores">
             <div className="tags">
               {tags.map((tag, index) => (
-                <NoteItem key={String(index)} value={tag} onClick={() => {}} />
+                <NoteItem
+                  key={String(index)}
+                  value={tag}
+                  onClick={() => handleRemoveTag(tag)}
+                />
               ))}
 
               <NoteItem
