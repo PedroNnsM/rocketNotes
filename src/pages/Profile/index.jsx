@@ -16,19 +16,27 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState();
   const [passwordNew, setPasswordNew] = useState();
 
-  async function handleUpdate(){
+  const [avatar, setAvatar] = useState(user.avatar);
+  const [avatarFile, setAvatarFile] = useState(null);
+
+  async function handleUpdate() {
     const user = {
       name,
       email,
       password: passwordNew,
-      old_password: passwordOld
-    }
-    
-    
-    await updateProfile({user})
+      old_password: passwordOld,
+    };
+
+    await updateProfile({ user, avatarFile });
   }
 
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
+    setAvatarFile(file);
 
+    const imagePreview = URL.createObjectURL(file);
+    setAvatar(imagePreview);
+  }
   return (
     <Container>
       <header>
@@ -39,11 +47,11 @@ export function Profile() {
 
       <Form>
         <Avatar>
-          <img src="https://github.com/pedronnsm.png" alt="foto do usuario" />
+          <img src={avatar} />
 
           <label htmlFor="avatar">
             <FiCamera />
-            <input id="avatar" type="file" />
+            <input id="avatar" type="file" onChange={handleChangeAvatar} />
           </label>
         </Avatar>
         <Input
@@ -72,7 +80,7 @@ export function Profile() {
           icon={FiLock}
           onChange={(e) => setPasswordNew(e.target.value)}
         />
-        <Button title="Salvar"  onClick={handleUpdate} />
+        <Button title="Salvar" onClick={handleUpdate} />
       </Form>
     </Container>
   );
