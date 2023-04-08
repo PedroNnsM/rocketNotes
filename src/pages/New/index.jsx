@@ -24,6 +24,8 @@ export function New() {
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
 
+  const navigate = useNavigate();
+
   function handleAddLink() {
     setLinks((prevState) => [...prevState, newLink]);
     setNewLink("");
@@ -42,15 +44,16 @@ export function New() {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 
-  async function handleNewNote(){
-    await api.post("/notes",{
+  async function handleNewNote() {
+    await api.post("/notes", {
       title,
       description,
       tags,
-      links
-    })
+      links,
+    });
 
-    alert('nota criada com sucesso')
+    alert("nota criada com sucesso");
+    navigate("/");
   }
 
   return (
