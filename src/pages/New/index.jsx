@@ -114,7 +114,9 @@ export function New() {
             </div>
           </Section>
 
-          <Button title="Salvar" />
+          <Button 
+          title="Salvar" 
+          onClick={handleNewNote} />
         </Form>
       </main>
     </Container>
