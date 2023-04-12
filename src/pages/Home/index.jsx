@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
@@ -9,6 +10,11 @@ import { Section } from "../../components/Section";
 import { Note } from "../../components/Note";
 
 export function Home() {
+  const [tags, setTags] = useState([])
+
+  useEffect(() => {
+
+  }, [])
   return (
     <Container>
       <Brand>
