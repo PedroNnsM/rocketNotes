@@ -18,6 +18,10 @@ export function Home() {
   const [notes, setNotes] = useState([]);
 
   function handleTagSelected(tagName) {
+    if (tagName === "all") {
+      return setTagsSelected([]);
+    }
+
     const alreadySelected = tagsSelected.includes(tagName);
     if (alreadySelected) {
       const filteredTags = tagsSelected.filter((tag) => tag != tagName);
@@ -56,7 +60,11 @@ export function Home() {
 
       <Menu>
         <li>
-          <ButtonText title="Todos" isActive={tagsSelected.length === 0} />
+          <ButtonText
+            title="Todos"
+            onClick={() => handleTagSelected("all")}
+            isActive={tagsSelected.length === 0}
+          />
         </li>
         {tags &&
           tags.map((tag) => (
@@ -79,11 +87,8 @@ export function Home() {
 
       <Content>
         <Section title="Minhas notas">
-          {notes.map(note => (
-            <Note
-              key={String(note.id)}
-              data={note}
-            />
+          {notes.map((note) => (
+            <Note key={String(note.id)} data={note} />
           ))}
         </Section>
       </Content>
