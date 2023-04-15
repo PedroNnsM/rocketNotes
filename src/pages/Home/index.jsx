@@ -90,7 +90,7 @@ export function Home() {
          
           {notes.map((note) => (
             
-            <Note key={String(note.id)} data={note} onClick={console.log(note)} />
+            <Note key={String(note.id)} data={note} onClick={console.log(note.tags)} />
            
           ))}
         </Section>
