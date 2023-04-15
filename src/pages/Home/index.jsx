@@ -87,8 +87,11 @@ export function Home() {
 
       <Content>
         <Section title="Minhas notas">
+         
           {notes.map((note) => (
-            <Note key={String(note.id)} data={note} />
+            
+            <Note key={String(note.id)} data={note} onClick={console.log(note)} />
+           
           ))}
         </Section>
       </Content>
