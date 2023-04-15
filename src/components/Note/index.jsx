@@ -5,10 +5,10 @@ export function Note({ data, ...rest }) {
     <Container {...rest}>
       <h1>{data.title}</h1>
 
-      {data.tag && (
+      {data.tags && (
         <footer>
-          {data.tag.map((tags) => (
-            <Tag key={tags.id} title={tags.name} />
+          {data.tags.map((tag) => (
+            <Tag key={tag.id} title={tag.name} />
           ))}
         </footer>
       )}
