@@ -13,7 +13,7 @@ export function Details() {
   const [data, setData] = useState(null);
 
   const params = useParams();
-
+  // Ajustar err com as notas 
   useEffect(() => {
     async function fetchNote() {
       const response = await api.get(`/notes/${params.id}`);
