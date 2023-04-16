@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Links, Content } from "./styles.js";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { Button } from "../../components/Button/index.jsx";
 import { ButtonText } from "../../components/ButtonText/index.jsx";
@@ -13,25 +13,40 @@ export function Details() {
   const [data, setData] = useState(null);
 
   const params = useParams();
-  // Ajustar err com as notas 
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate("/");
+  }
+
+  async function handleRemove() {
+    const confirm = window.confirm("Você deseja realmente remover a nota?");
+
+    if (confirm) {
+      
+      const response = await api.delete(`/notes/${params.id}`);
+      
+      console.log(response)
+      handleBack();
+    }
+  }
+
   useEffect(() => {
     async function fetchNote() {
       const response = await api.get(`/notes/${params.id}`);
-      console.log(response.data)
-      setData(response.data);
 
+      setData(response.data);
     }
     fetchNote();
-    
   }, []);
-  console.log(data)
+
   return (
     <Container>
       <Header />
-      {data && 
+      {data && (
         <main>
           <Content>
-            <ButtonText title="Excluir nota" />
+            <ButtonText title="Excluir nota" onClick={handleRemove} />
 
             <h1>{data.title}</h1>
 
@@ -41,25 +56,26 @@ export function Details() {
                 <Links>
                   {data.links.map((link) => (
                     <li key={String(link.id)}>
-                      <a href={link.url}>{link.url}</a>
+                      <a href={link.url} target="_blanck">
+                        {link.url}
+                      </a>
                     </li>
                   ))}
                 </Links>
               </Section>
             )}
-           
+
             {data.tags && (
               <Section title="Marcadores ">
-              
                 {data.tags.map((tag) => (
                   <Tag key={String(tag.id)} title={tag.name} />
                 ))}
               </Section>
             )}
-            <Button title="Voltar" />
+            <Button title="Voltar" onClick={handleBack} />
           </Content>
         </main>
-      }
+      )}
     </Container>
   );
 }
