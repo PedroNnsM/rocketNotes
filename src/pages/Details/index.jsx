@@ -24,10 +24,10 @@ export function Details() {
     fetchNote();
     
   }, []);
+  console.log(data)
   return (
     <Container>
       <Header />
-
       {data && 
         <main>
           <Content>
@@ -47,9 +47,11 @@ export function Details() {
                 </Links>
               </Section>
             )}
+           
             {data.tags && (
               <Section title="Marcadores ">
-                {data.tag.map((tag) => (
+              
+                {data.tags.map((tag) => (
                   <Tag key={String(tag.id)} title={tag.name} />
                 ))}
               </Section>
