@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Textarea } from "../../components/Textarea";
-import { NoteItem } from "../../components/Note_Item";
+
 import { Section } from "../../components/Section";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 
 import { api } from "../../services/api";
-
+import { NoteItem } from "../../components/Note-Item";
 import { Container, Form } from "./styles";
 import { ButtonText } from "../../components/ButtonText";
 
