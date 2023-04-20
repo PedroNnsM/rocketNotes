@@ -25,7 +25,7 @@ export function SignIn() {
         <h1>Rocket Notes</h1>
         <p>Aplicação para salvar e gerenciar links úteis</p>
 
-        <h2>Façca seu Login</h2>
+        <h2>Faça seu Login</h2>
 
         <Input
           placeholder="E-mail"

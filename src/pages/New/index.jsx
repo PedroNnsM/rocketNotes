@@ -10,9 +10,10 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 
 import { api } from "../../services/api";
-import { NoteItem } from "../../components/Note-Item";
+
 import { Container, Form } from "./styles";
 import { ButtonText } from "../../components/ButtonText";
+import { NoteItem } from "../../components/Note-Item/Index";
 
 export function New() {
   const [title, setTitle] = useState("");
