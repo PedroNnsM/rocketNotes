@@ -52,6 +52,7 @@ export function Profile() {
 
     const imagePreview = URL.createObjectURL(file);
     setAvatar(imagePreview);
+   
   }
   return (
     <Container>

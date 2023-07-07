@@ -122,7 +122,6 @@ export function New() {
                   onClick={() => handleRemoveTag(tag)}
                 />
               ))}
-
               <NoteItem
                 isNew
                 placeholder="Nova tag"
