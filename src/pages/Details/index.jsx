@@ -23,10 +23,9 @@ export function Details() {
     const confirm = window.confirm("Você deseja realmente remover a nota?");
 
     if (confirm) {
-      
       const response = await api.delete(`/notes/${params.id}`);
-      
-      console.log(response)
+
+      console.log(response);
       handleBack();
     }
   }

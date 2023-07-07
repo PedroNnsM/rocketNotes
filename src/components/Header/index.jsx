@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 export function Header() {
   const { signOut, user } = useAuth();
-  const navigation = useNavigate()
+  const navigation = useNavigate();
 
-  function handleSignOut(){
-    navigation('/')
-    signOut()
+  function handleSignOut() {
+    navigation("/");
+    signOut();
   }
 
   const avatarUrl = user.avatar
@@ -35,4 +35,4 @@ export function Header() {
     </Container>
   );
 }
-0
+0;
